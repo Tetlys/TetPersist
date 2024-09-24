@@ -1,0 +1,23 @@
+#include "TETPERSIST\FNC\UI\menu.hpp"
+
+
+// CBA XEH
+class Extended_PreInit_EventHandlers {
+    #include "core\fnc\eh\xeh_PreInit_EH.hpp" // CompileFile
+};
+
+class Extended_InitPost_EventHandlers {
+    class LandVehicle {
+        #include "core\fnc\eh\xeh_InitPost_EH_Vehicle.hpp" // Vehicle Init
+    };
+    class Air {
+        #include "core\fnc\eh\xeh_InitPost_EH_Vehicle.hpp" // Vehilce Init
+    };
+    class Ship {
+        #include "core\fnc\eh\xeh_InitPost_EH_Vehicle.hpp" // Vehicle Init
+    };
+    class CAManBase { // Post Init
+		init = "_this call (compile preprocessFileLineNumbers 'postInitXEH.sqf')";
+	};
+};
+
