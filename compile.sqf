@@ -4,12 +4,13 @@
 // 		DATABASE
 fortify_fnc_save = compileScript ["TETPERSIST\FNC\CORE\save.sqf"];
 fortify_fnc_load = compileScript ["TETPERSIST\FNC\CORE\load.sqf"];
+// Delete
 //Load Object Status
 //Save Object Status
 //Load Cargo 
 //TurretMags
 
-// 		EVENTS
+// 		EH
 // Server
 // Player Connected 
 
@@ -18,15 +19,10 @@ fortify_fnc_load = compileScript ["TETPERSIST\FNC\CORE\load.sqf"];
 // Deserialize Server
 // Create Key
 
-// 		RESPAWN
-// Player Connected
-// Player 
-
 // 		OBJECT 
 // Init 
 
 // 		VEH 
-// Killed
 // Properties GET 
 // Properties SET 
 // ADD 
@@ -41,10 +37,10 @@ fortify_fnc_load = compileScript ["TETPERSIST\FNC\CORE\load.sqf"];
 // Object Placed 
 // Player 
 
-//		 PLAYER 
+//		 UI
 // Add Actions/Keybinds 
 
-// SLOT 
+// 		SLOT 
 // Deserialize state
 
 
@@ -58,4 +54,5 @@ fortify_fnc_load = compileScript ["TETPERSIST\FNC\CORE\load.sqf"];
 // 		VEH 
 // INIT
 
-
+//		 UI  
+// Open
