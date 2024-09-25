@@ -1,5 +1,5 @@
 /* ----------------------------------------------------------------------------
-Function: persist_FILLME_fnc_FILLME
+Function: persist_CORE_fnc_DELETE
 
 Description:
     FILL ME
