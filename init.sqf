@@ -1,3 +1,5 @@
+// MAIN INIT
+
 enableSaving [false, false];
 
 if (!isDedicated && hasInterface) then {

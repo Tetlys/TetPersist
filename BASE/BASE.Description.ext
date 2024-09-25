@@ -16,8 +16,5 @@ class Extended_InitPost_EventHandlers {
     class Ship {
         #include "core\fnc\eh\xeh_InitPost_EH_Vehicle.hpp" // Vehicle Init
     };
-    class CAManBase { // Post Init
-		init = "_this call (compile preprocessFileLineNumbers 'postInitXEH.sqf')";
-	};
 };
 
