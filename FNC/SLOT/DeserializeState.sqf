@@ -1,5 +1,5 @@
 /* ----------------------------------------------------------------------------
-Function: persist_slot_fnc_serialize
+Function: persist_slot_fnc_Deserialize
 
 Description:
     FILL ME
