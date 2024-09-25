@@ -6,7 +6,7 @@
 
 **Tet_persist** is an Arma 3 PBO mission module coded in SQF. It allows administrators to dynamically save objects placed by Zeus and persist changes between game sessions. This system is designed to ensure that important in-game assets, player progress, and mission-critical elements remain intact across server restarts or mission replays.
 
-[![Discord](https://img.shields.io/discord/1234567890?label=Discord&logo=discord&color=blue)](https://discord.gg/4DdMKvJjMa) [![Roadmap](https://img.shields.io/badge/Roadmap-Visit%20Wiki-blue?style=for-the-badge)](https://github.com/Tetlys/TetPersist/wiki/Roadmap)
+[![Discord](https://img.shields.io/badge/Discord-Join%20Us-blue?style=for-the-badge&logo=discord)](https://discord.gg/4DdMKvJjMa) [![Roadmap](https://img.shields.io/badge/Roadmap-Visit%20Wiki-blue?style=for-the-badge)](https://github.com/Tetlys/TetPersist/wiki/Roadmap)
 
 
 ## Features 🌟
