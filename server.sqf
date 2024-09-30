@@ -1,6 +1,6 @@
 // INIT SERVER
 
-if (profileNamespace getVariable [format ["FILL ME IN", worldName], false]) then {
+if (profileNamespace getVariable [format ["TET_%1_db", worldName], false]) then {
 [] call compileScript ["TETPERSIST\FNC\CORE\load.sqf"];
 } else {
     {

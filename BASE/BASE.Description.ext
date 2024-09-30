@@ -4,16 +4,3 @@
 class Extended_PreInit_EventHandlers {
     #include "TETPERSIST\FNC\EH\xeh_PreInit_EH.hpp" // CompileFile
 };
-
-class Extended_InitPost_EventHandlers {
-    class LandVehicle {
-        #include "TETPERSIST\FNC\EH\xeh_InitPost_EH_Vehicle.hpp" // Vehicle Init
-    };
-    class Air {
-        #include "TETPERSIST\FNC\EH\xeh_InitPost_EH_Vehicle.hpp" // Vehilce Init
-    };
-    class Ship {
-        #include "TETPERSIST\FNC\EH\xeh_InitPost_EH_Vehicle.hpp" // Vehicle Init
-    };
-};
-

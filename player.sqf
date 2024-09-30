@@ -9,7 +9,7 @@ persist_respawn_marker setMarkerPosLocal player;
 player addRating 9999;
 
 // ASSET MARKERS
-execVM "core\fnc\common\empty_vehicles_marker.sqf";
+execVM "TETPERSIST\UI\empty_vehicles_marker.sqf";
 
 // ACTIONS
 [] call persist_ui_fnc_actions;

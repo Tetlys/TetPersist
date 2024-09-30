@@ -17,3 +17,14 @@ Author:
     Tetlys
 
 ---------------------------------------------------------------------------- */
+
+params [
+    ["_player", objNull, [objNull]]
+];
+
+private _key = position _player;
+_key pushBack getPlayerUID _player;
+
+_player setVariable ["tet_slot_key", _key];
+
+_key

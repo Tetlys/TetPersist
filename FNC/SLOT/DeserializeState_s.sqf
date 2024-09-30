@@ -17,3 +17,12 @@ Author:
     Tetlys
 
 ---------------------------------------------------------------------------- */
+
+params [
+    ["_player", objNull, [objNull]],
+    ["_key", "", ["", []]]
+];
+
+private _data = persist_slots_serialized getOrDefault [_key, []];
+if (_data isEqualTo []) exitWith {};
+_data remoteExecCall ["btc_slot_fnc_deserializeState", _player];
