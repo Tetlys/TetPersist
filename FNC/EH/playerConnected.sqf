@@ -1,5 +1,5 @@
 /* ----------------------------------------------------------------------------
-Function: persist_FILLME_fnc_FILLME
+Function: persist_eh_fnc_PlayerConnected
 
 Description:
     FILL ME
