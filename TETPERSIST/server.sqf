@@ -15,3 +15,5 @@ if (profileNamespace getVariable [format ["TET_%1_db", worldName], false]) then 
 };
 
 [] call persist_eh_fnc_server;
+
+// Need an additional layer filter to pull enemy units, seperate vehicles and units and add them respectivly to the arrays

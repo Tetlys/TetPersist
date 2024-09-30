@@ -27,7 +27,10 @@ if !((_object_placed isKindOf "allVehicles") || (_object_placed isKindOf "Module
     [_object_placed] remoteExecCall ["persist_obj_fnc_init", 2];
 };
 
-if (!(_object_placed isKindOf "Module_F") && (_object_placed isKindOf "allVehicles")) then {
+if (!(_object_placed isKindOf "Module_F") && (_object_placed isKindOf "allVehicles")) then { // Needs a filter for crew count.
     [_object_placed] remoteExecCall ["persist_veh_fnc_add", 2];
 };
-// FILTER VEHICLES WITH UNITS - ADD THESE TO A SEPERATE ARRAY 
+
+
+// Add a section ai 
+
