@@ -1,9 +1,6 @@
 author = "Tetlys";
 enabledebugconsole = 1;
 
-
-#include "TETPERSIST\FNC\UI\menu.hpp"
-
 // CBA XEH
 class Extended_PreInit_EventHandlers {
     #include "TETPERSIST\FNC\EH\xeh_PreInit_EH.hpp" // CompileFile

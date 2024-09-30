@@ -36,7 +36,6 @@ persist_eh_fnc_Player = compileScript ["TETPERSIST\FNC\EH\player.sqf"];
 
 //		 UI
 persist_ui_fnc_actions = compileScript ["TETPERSIST\FNC\UI\addactions.sqf"];
-persist_ui_fnc_keys = compileScript ["TETPERSIST\FNC\UI\keys.sqf"];
 persist_ui_fnc_hint = compileScript ["TETPERSIST\FNC\UI\hint.sqf"];
 
 // 		SLOT 
@@ -48,6 +47,3 @@ persist_slot_fnc_Deserialize = compileScript ["TETPERSIST\FNC\SLOT\DeserializeSt
 //  	OBJECT 
 persist_obj_fnc_invSet = compileScript ["TETPERSIST\FNC\OBJ\InvSet.sqf"];
 persist_obj_fnc_invGet = compileScript ["TETPERSIST\FNC\OBJ\InvGet.sqf"];
-
-//		 UI  
-persist_ui_fnc_open = compileScript ["TETPERSIST\FNC\UI\open.sqf"];

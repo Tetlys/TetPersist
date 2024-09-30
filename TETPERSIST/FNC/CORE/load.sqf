@@ -142,3 +142,5 @@ private _markers_properties = +(profileNamespace getVariable [format ["TET_%1_ma
         _marker setMarkerPolyline _markerPolyline;
     };
 } forEach _markers_properties;
+
+// Run a debug message to console stating whats been loaded
