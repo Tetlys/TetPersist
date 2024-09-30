@@ -43,6 +43,11 @@ if (persist_save_vehicles pushBackUnique _veh isEqualTo -1) exitWith {
 };
 publicVariable "persist_save_vehicles";
 
+{
+    _x addCuratorEditableObjects [[_veh], false];
+} forEach allCurators;
+
+
 _veh setVariable ["tet_dont_delete", true];
 
 if ((isNumber (configOf _veh >> "ace_fastroping_enabled")) && (typeOf _veh isNotEqualTo "RHS_UH1Y_d")) then {

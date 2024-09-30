@@ -8,7 +8,7 @@ class EditorData
 	toggles=1;
 	class ItemIDProvider
 	{
-		nextID=16;
+		nextID=21;
 	};
 	class MarkerIDProvider
 	{
@@ -16,14 +16,14 @@ class EditorData
 	};
 	class LayerIndexProvider
 	{
-		nextID=2;
+		nextID=4;
 	};
 	class Camera
 	{
-		pos[]={3664.1282,15.569397,4539.915};
-		dir[]={0.27053082,-0.35696781,0.89413321};
-		up[]={0.10338368,0.9340905,0.34169871};
-		aside[]={0.95719844,6.4494088e-007,-0.2896089};
+		pos[]={3662.6523,23.965664,4531.3501};
+		dir[]={0.085305169,-0.5430305,0.83536881};
+		up[]={0.055165645,0.83971292,0.54022115};
+		aside[]={0.99482656,-3.7252903e-009,-0.10158849};
 	};
 };
 binarizationWanted=0;
@@ -36,13 +36,14 @@ addons[]=
 	"ace_cargo",
 	"A3_Characters_F",
 	"A3_Ui_F",
-	"A3_Modules_F_Curator_Curator"
+	"A3_Modules_F_Curator_Curator",
+	"ace_medical_treatment"
 };
 class AddonsMetaData
 {
 	class List
 	{
-		items=6;
+		items=7;
 		class Item0
 		{
 			className="A3_Soft_F_Gamma";
@@ -85,6 +86,13 @@ class AddonsMetaData
 			author="Bohemia Interactive";
 			url="https://www.arma3.com";
 		};
+		class Item6
+		{
+			className="ace_medical_treatment";
+			name="ACE3 - Medical Treatment";
+			author="ACE-Team";
+			url="https://ace3.acemod.org/";
+		};
 	};
 };
 randomSeed=10033272;
@@ -101,6 +109,19 @@ class CustomAttributes
 	{
 		name="Multiplayer";
 		class Attribute0
+		{
+			property="RespawnButton";
+			expression="true";
+			class Value
+			{
+				class data
+				{
+					singleType="SCALAR";
+					value=0;
+				};
+			};
+		};
+		class Attribute1
 		{
 			property="RespawnTemplates";
 			expression="true";
@@ -124,20 +145,136 @@ class CustomAttributes
 				};
 			};
 		};
-		class Attribute1
+		nAttributes=2;
+	};
+	class Category1
+	{
+		name="Scenario";
+		class Attribute0
 		{
-			property="RespawnButton";
-			expression="true";
+			property="cba_settings_hash";
+			expression="false";
 			class Value
 			{
 				class data
 				{
-					singleType="SCALAR";
-					value=0;
+					singleType="ARRAY";
+					class value
+					{
+						items=4;
+						class Item0
+						{
+							class data
+							{
+								singleType="STRING";
+								value="#CBA_HASH#";
+							};
+						};
+						class Item1
+						{
+							class data
+							{
+								singleType="ARRAY";
+								class value
+								{
+									items=2;
+									class Item0
+									{
+										class data
+										{
+											singleType="STRING";
+											value="ace_zeus_autoaddobjects";
+										};
+									};
+									class Item1
+									{
+										class data
+										{
+											singleType="STRING";
+											value="ace_zeus_cancreatezeus";
+										};
+									};
+								};
+							};
+						};
+						class Item2
+						{
+							class data
+							{
+								singleType="ARRAY";
+								class value
+								{
+									items=2;
+									class Item0
+									{
+										class data
+										{
+											singleType="ARRAY";
+											class value
+											{
+												items=2;
+												class Item0
+												{
+													class data
+													{
+														singleType="BOOL";
+														value=1;
+													};
+												};
+												class Item1
+												{
+													class data
+													{
+														singleType="SCALAR";
+														value=1;
+													};
+												};
+											};
+										};
+									};
+									class Item1
+									{
+										class data
+										{
+											singleType="ARRAY";
+											class value
+											{
+												items=2;
+												class Item0
+												{
+													class data
+													{
+														singleType="SCALAR";
+														value=0;
+													};
+												};
+												class Item1
+												{
+													class data
+													{
+														singleType="SCALAR";
+														value=1;
+													};
+												};
+											};
+										};
+									};
+								};
+							};
+						};
+						class Item3
+						{
+							class data
+							{
+								nil=1;
+								singleType="ANY";
+							};
+						};
+					};
 				};
 			};
 		};
-		nAttributes=2;
+		nAttributes=1;
 	};
 };
 class Mission
@@ -163,7 +300,7 @@ class Mission
 	};
 	class Entities
 	{
-		items=4;
+		items=5;
 		class Item0
 		{
 			dataType="Layer";
@@ -178,7 +315,7 @@ class Mission
 					{
 						position[]={-100000,5,-100000};
 					};
-					title="Things to save in here";
+					title="Vehicles to save in here";
 					id=2;
 				};
 				class Item1
@@ -186,7 +323,7 @@ class Mission
 					dataType="Object";
 					class PositionInfo
 					{
-						position[]={3661.7205,6.9147005,4564.5562};
+						position[]={3662.6592,6.9147005,4563.4375};
 						angles[]={-0,3.1536951,0};
 					};
 					side="Empty";
@@ -203,7 +340,7 @@ class Mission
 					class PositionInfo
 					{
 						position[]={3666.5999,6.9147005,4564.7715};
-						angles[]={-0,3.1760981,0};
+						angles[]={0,3.1760981,0};
 					};
 					side="Empty";
 					flags=4;
@@ -218,7 +355,7 @@ class Mission
 					dataType="Object";
 					class PositionInfo
 					{
-						position[]={3671.2004,6.9147005,4564.5522};
+						position[]={3670.2798,6.9147005,4564.8345};
 						angles[]={-0,3.1827886,0};
 					};
 					side="Empty";
@@ -245,7 +382,7 @@ class Mission
 					class PositionInfo
 					{
 						position[]={3666.4302,5.0014391,4557.2441};
-						angles[]={0,6.236485,-0};
+						angles[]={0,6.236485,0};
 					};
 					side="West";
 					flags=7;
@@ -275,9 +412,9 @@ class Mission
 			dataType="Logic";
 			class PositionInfo
 			{
-				position[]={3675.5471,5,4555.9492};
+				position[]={3668.7297,5,4557.3398};
 			};
-			id=15;
+			id=16;
 			type="ModuleCurator_F";
 			class CustomAttributes
 			{
@@ -290,7 +427,7 @@ class Mission
 						class data
 						{
 							singleType="STRING";
-							value="";
+							value="#adminLogged";
 						};
 					};
 				};
@@ -336,26 +473,41 @@ class Mission
 				nAttributes=4;
 			};
 		};
-	};
-	class Connections
-	{
-		class LinkIDProvider
+		class Item4
 		{
-			nextID=1;
-		};
-		class Links
-		{
-			items=1;
-			class Item0
+			dataType="Layer";
+			name="persist_save_objects";
+			class Entities
 			{
-				linkID=0;
-				item0=15;
-				item1=4;
-				class CustomData
+				items=2;
+				class Item0
 				{
-					type="Sync";
+					dataType="Comment";
+					class PositionInfo
+					{
+						position[]={-99998.578,5,-100000.86};
+					};
+					title="Objects to save in here";
+					id=18;
+				};
+				class Item1
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={3673.6711,5,4560.0708};
+						angles[]={-0,3.8950589,0};
+					};
+					side="Empty";
+					flags=4;
+					class Attributes
+					{
+					};
+					id=20;
+					type="ACE_medicalSupplyCrate";
 				};
 			};
+			id=17;
 		};
 	};
 };

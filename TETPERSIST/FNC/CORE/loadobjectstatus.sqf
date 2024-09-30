@@ -31,8 +31,6 @@ _object_data params [
     "_vectorPos",
     ["_flagTexture", "", [""]],
     ["_turretMagazines", [], [[]]],
-    ["_customName", "", [""]],
-    ["_tagTexture", "", [""]],
     ["_properties", [], [[]]]
 ];
 
@@ -51,14 +49,6 @@ if (_flagTexture isNotEqualTo "") then {
 
 if (_turretMagazines isNotEqualTo []) then {
     [_obj, _turretMagazines] call persist_db_fnc_setTurretMagazines;
-};
-
-if (_customName isNotEqualTo "") then {
-    _obj setVariable ["ace_cargo_customName", _customName, true];
-};
-
-if (_tagTexture isNotEqualTo "") then {
-    [objNull, [], _tagTexture, _obj, objNull, "", "", true] call ace_tagging_fnc_createTag;
 };
 
 if (_properties isNotEqualTo []) then {

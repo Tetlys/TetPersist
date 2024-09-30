@@ -22,6 +22,11 @@ params [
     ["_name", worldName, [""]]
 ];
 
+// PROTECT 
+if !(profileNamespace getVariable [format ["TET_%1_db", worldName], false]) exitwith {
+["LOAD_FAIL"] remoteExecCall ["persist_ui_fnc_hint", 0];
+};
+
 // CLEAR LAYERS
 {deleteVehicle _x} forEach (getMissionLayerEntities "persist_save_vehicles" select 0);
 if !(isNil "persist_save_vehicles") then {
@@ -29,6 +34,13 @@ if !(isNil "persist_save_vehicles") then {
     persist_save_vehicles = [];
 };
 publicVariable "persist_save_vehicles";
+
+{deleteVehicle _x} forEach (getMissionLayerEntities "persist_save_objects" select 0);
+if !(isNil "persist_save_objects") then {
+    {deleteVehicle _x} forEach persist_save_objects;
+    persist_save_objects = [];
+};
+publicVariable "persist_save_objects";
 
 // OBJECTS
 private _objs = +(profileNamespace getVariable [format ["TET_%1_objs", _name], []]);

@@ -19,6 +19,10 @@ execVM "TETPERSIST\FNC\UI\empty_vehicles_marker.sqf";
 
 }] call CBA_fnc_waitUntilAndExecute;
 
+{
+    _x addEventHandler ["CuratorObjectPlaced", persist_eh_fnc_ObjectPlaced];
+} forEach allCurators;
+
 
 // TEMPORARY
 

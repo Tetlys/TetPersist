@@ -32,10 +32,7 @@ if (_object isEqualType objNull) then {
 
     private _weaponsItemsCargo = weaponsItemsCargo _object;
     {
-        private _magazine = _x select 4 select 0;
-        if (((_magazine call BIS_fnc_itemType) select 1) isEqualTo "UnknownMagazine") then {
-            _x set [4, []]; // Remove dummy magazine
-        };
+    private _magazine = _x select 4 select 0;
     } forEach _weaponsItemsCargo;
 
     _inventory = [

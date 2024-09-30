@@ -35,6 +35,9 @@ private _text = switch (_type) do {
 	case "DELETE" : {
 		"Database Deleted"
 	};
+	case "LOAD_FAIL" : {
+		"Failed to locate save!"
+	};
 };
 
 _text call CBA_fnc_notify;
