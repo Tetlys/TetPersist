@@ -30,3 +30,4 @@ if !((_object_placed isKindOf "allVehicles") || (_object_placed isKindOf "Module
 if (!(_object_placed isKindOf "Module_F") && (_object_placed isKindOf "allVehicles")) then {
     [_object_placed] remoteExecCall ["persist_veh_fnc_add", 2];
 };
+// FILTER VEHICLES WITH UNITS - ADD THESE TO A SEPERATE ARRAY 

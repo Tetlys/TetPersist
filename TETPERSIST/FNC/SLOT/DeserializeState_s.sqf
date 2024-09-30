@@ -25,4 +25,4 @@ params [
 
 private _data = persist_slots_serialized getOrDefault [_key, []];
 if (_data isEqualTo []) exitWith {};
-_data remoteExecCall ["btc_slot_fnc_deserializeState", _player];
+_data remoteExecCall ["persist_slot_fnc_Deserialize", _player];

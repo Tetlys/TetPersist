@@ -26,10 +26,11 @@ execVM "TETPERSIST\FNC\UI\empty_vehicles_marker.sqf";
 
 // TEMPORARY
 
+
 _loadAction = player addAction [
     "<t color='#00FF00'>Load Data</t>",          // Green text for the action
     {
-        [] call persist_db_fnc_load;
+        [] remoteExecCall ["persist_db_fnc_load", 2];  // Remote execute on the server (2 is for the server)
     },
     nil,  // No arguments passed
     6,    // Priority (adjust as needed)
@@ -42,7 +43,7 @@ _loadAction = player addAction [
 _saveAction = player addAction [
     "<t color='#FFFF00'>Save Data</t>",          // Yellow text for the action
     {
-        [] call persist_db_fnc_save;
+        [] remoteExecCall ["persist_db_fnc_save", 2];  // Remote execute on the server
     },
     nil,
     6,
@@ -52,11 +53,10 @@ _saveAction = player addAction [
     ""
 ];
 
-
 _deleteAction = player addAction [
     "<t color='#FF0000'>Delete Data</t>",        // Red text for the action
     {
-        [] call persist_db_fnc_delete;
+        [] remoteExecCall ["persist_db_fnc_delete", 2];  // Remote execute on the server
     },
     nil,
     6,

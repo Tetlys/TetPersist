@@ -25,7 +25,6 @@ Author:
     {
         _x params ["_type", "", "_inventory",
             ["_turretMagazines", [], [[]]],
-            ["_customName", "", [""]],
             ["_properties", [], [[]]]
         ];
 

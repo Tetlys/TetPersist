@@ -41,7 +41,7 @@ _veh setPosASL _pos;
 
 [_veh, _customization, _isMedicalVehicle, _isRepairVehicle, _fuelSource, _pylons, _supplyVehicle, _objectTexture] call persist_veh_fnc_propertiesSet;
 if (_EDENinventory isNotEqualTo []) then {
-    _veh setVariable ["btc_EDENinventory", _EDENinventory];
+    _veh setVariable ["tet_EDENinventory", _EDENinventory];
     [_veh, _EDENinventory] call persist_obj_fnc_invSet;
 };
 

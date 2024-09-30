@@ -105,11 +105,11 @@ profileNamespace setVariable [format ["TET_%1_objs", _name], +_array_obj];
 private _slots_serialized = +persist_slots_serialized;
 {
     if (_y isEqualTo []) then {continue};
-    private _vehicle = _y select 6;
+    private _vehicle = _y select 5;
     if !(isNull _vehicle) then {
         _y set [0, getPosASL _vehicle];
     };
-    _y set [6, typeOf _vehicle];
+    _y set [5, typeOf _vehicle];
 } forEach _slots_serialized;
 profileNamespace setVariable [format ["TET_%1_slots", _name], +_slots_serialized];
 

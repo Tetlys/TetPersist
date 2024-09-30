@@ -20,9 +20,8 @@ Author:
 // Respawn
 ["tet_respawn_player", {
     params ["", "_player"];
-    _uid = getplayerUID _player;
     persist_slots_serialized set [
-        _player getVariable ["btc_slot_key", [0, 0, 0]],
+        _player getVariable ["tet_slot_key", [0, 0, 0]],
         [] // Reset serialized data if slot died
     ];
 }] call CBA_fnc_addEventHandler;
@@ -37,7 +36,7 @@ addMissionEventHandler ["HandleDisconnect", {
         deleteVehicle _player;
     };
     if (alive _player) then {
-        _player call persist_slot_fnc_Deserialize;
+        _player call persist_slot_fnc_serialize;
     };
     false
 }];
@@ -46,7 +45,7 @@ addMissionEventHandler ["HandleDisconnect", {
 ["ace_unconscious", persist_slot_fnc_serialize] call CBA_fnc_addEventHandler;
 
 // Connected Handle Keys
-["btc_playerConnected", { 
+["tet_playerConnected", { 
     params ["_player", "_ids"];
     [_player, _player call persist_slot_fnc_CreateKey, _ids select 4] call persist_slot_fnc_Deserialize_S;
 }] call CBA_fnc_addEventHandler;
@@ -54,6 +53,6 @@ addMissionEventHandler ["HandleDisconnect", {
 // Save on empty
 addMissionEventHandler ["HandleDisconnect", {
 	if ((allPlayers - entities "HeadlessClient_F") isEqualTo []) then {
-		[] call persist_slot_fnc_Deserialize_S;
+		[] call persist_db_fnc_save;
 	};
 }];

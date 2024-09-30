@@ -22,15 +22,15 @@ params [
     ["_player", objNull, [objNull]]
 ];
 
-/*
+
 {
-    _x addEventHandler ["CuratorObjectPlaced", btc_eh_fnc_CuratorObjectPlaced];
+    _x addEventHandler ["CuratorObjectPlaced", persist_eh_fnc_ObjectPlaced];
 } forEach allCurators;
-*/
+
 
 // Save state on vehicle change
-_player addEventHandler ["GetInMan", {_this remoteExecCall ["btc_slot_fnc_serializeState", 2]}];
-_player addEventHandler ["GetOutMan", {_this remoteExecCall ["btc_slot_fnc_serializeState", 2];}];
+_player addEventHandler ["GetInMan", {_this remoteExecCall ["persist_slot_fnc_serialize", 2]}];
+_player addEventHandler ["GetOutMan", {_this remoteExecCall ["persist_slot_fnc_serialize", 2];}];
 
 // Save statics
 _player addEventHandler ["WeaponAssembled", {
