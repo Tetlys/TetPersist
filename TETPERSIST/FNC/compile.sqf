@@ -26,7 +26,7 @@ persist_obj_fnc_init = compileScript ["TETPERSIST\FNC\OBJ\init.sqf"];
 persist_veh_fnc_propertiesGet = compileScript ["TETPERSIST\FNC\VEH\propertiesget.sqf"];
 persist_veh_fnc_propertiesSet = compileScript ["TETPERSIST\FNC\VEH\propertiesset.sqf"];
 persist_veh_fnc_add = compileScript ["TETPERSIST\FNC\VEH\add.sqf"];
-persist_veh_fnc_createVehicle = compileScipt ["TETPERSIST\FNC\VEH\createVehicle.sqf"];
+persist_veh_fnc_createVehicle = compileScript ["TETPERSIST\FNC\VEH\createVehicle.sqf"];
 
 /////////////////////CLIENT\\\\\\\\\\\\\\\\\\\\\
 

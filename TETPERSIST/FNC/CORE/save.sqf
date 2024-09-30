@@ -28,7 +28,7 @@ params [
 [false] call persist_db_fnc_delete;
 
 // VEHICLES 
-private _array_veh = []
+private _array_veh = [];
 private _vehicles = persist_save_vehicles - [objNull];
 private _vehiclesNotInCargo = _vehicles select {
     isNull isVehicleCargo _x &&
@@ -37,12 +37,13 @@ private _vehiclesNotInCargo = _vehicles select {
 private _vehiclesInCargo = _vehicles - _vehiclesNotInCargo;
 
 {
-    (_x call persist_db_fnc_SaveObjStatus) params [
+    (_x call btc_db_fnc_saveObjectStatus) params [
         "_type", "_pos", "_dir", "", "_cargo",
-        "_inventory", "_vectorPos",
+        "_inventory", "_vectorPos", "_isContaminated", "",
         ["_flagTexture", "", [""]],
         ["_turretMagazines", [], [[]]],
         ["_notuse", "", [""]],
+        ["_tagTexture", "", [""]],
         ["_properties", [], [[]]]
     ];
 
@@ -57,26 +58,26 @@ private _vehiclesInCargo = _vehicles - _vehiclesNotInCargo;
     _data append ([_x] call persist_veh_fnc_propertiesGet);
     _data pushBack (_x getVariable ["btc_EDENinventory", []]);
     _data pushBack _vectorPos;
-    //_data pushBack []; // ViV
+    _data pushBack []; // ViV
     _data pushBack _flagTexture;
     _data pushBack _turretMagazines;
     _data pushBack _properties;
 
-    //private _fakeViV = isVehicleCargo attachedTo _x;
-    //if (
-    //    isNull _fakeViV &&
-    //    {isNull isVehicleCargo _x}
-    //) then {
-    //     _array_veh pushBack _data;
-    //} else {
-    //    private _vehicleCargo = if (isNull _fakeViV) then {
-    //        isVehicleCargo _x
-    //    } else {
-   //         _fakeViV
-    //    };
-    //    private _index = _vehiclesNotInCargo find _vehicleCargo;
-    //    ((_array_veh select _index) select 17) pushBack _data;
-    //};
+    private _fakeViV = isVehicleCargo attachedTo _x;
+    if (
+        isNull _fakeViV &&
+        {isNull isVehicleCargo _x}
+    ) then {
+         _array_veh pushBack _data;
+    } else {
+        private _vehicleCargo = if (isNull _fakeViV) then {
+            isVehicleCargo _x
+        } else {
+            _fakeViV
+        };
+        private _index = _vehiclesNotInCargo find _vehicleCargo;
+        ((_array_veh select _index) select 17) pushBack _data;
+    };
 
 } forEach (_vehiclesNotInCargo + _vehiclesInCargo);
 profileNamespace setVariable [format ["TET_%1_vehs", _name], +_array_veh];
@@ -103,7 +104,7 @@ profileNamespace setVariable [format ["TET_%1_objs", _name], +_array_obj];
         _x call persist_slot_fnc_serialize;
     };
 } forEach (allPlayers - entities "HeadlessClient_F");
-private _slots_serialized = +btc_slots_serialized;
+private _slots_serialized = +persist_slots_serialized;
 {
     if (_y isEqualTo []) then {continue};
     private _vehicle = _y select 6;

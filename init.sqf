@@ -1,11 +1,1 @@
-// MAIN INIT
-
-enableSaving [false, false];
-
-if (!isDedicated && hasInterface) then {
-    [] call compileScript ["TETPERSIST\player.sqf"];
-};
-
-if (isServer) then {
-    [] call compileScript ["TETPERSIST\server.sqf"];
-};
+[compileScript ["TETPERSIST\init.sqf"]] call CBA_fnc_directCall;

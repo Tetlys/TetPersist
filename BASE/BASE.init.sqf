@@ -1,1 +1,0 @@
-[compileScript ["TETPERSIST\init.sqf"]] call CBA_fnc_directCall;

@@ -28,7 +28,6 @@ params [
     ["_isRepairVehicle", false, [true]],
     ["_fuelSource", [], [[]]],
     ["_pylons", [], [[]]],
-    ["_isContaminated", false, [false]],
     ["_supplyVehicle", [], [[]]],
     ["_objectTexture", [], [[]]],
     ["_EDENinventory", [], [[]]],

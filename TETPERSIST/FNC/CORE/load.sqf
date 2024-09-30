@@ -55,6 +55,7 @@ private _vehs = +(profileNamespace getVariable [format ["TET_%1_vehs", _name], [
             ["_isRepairVehicle", false, [false]],
             ["_fuelSource", [], [[]]],
             ["_pylons", [], [[]]],
+            ["_isContaminated", false, [false]],
             ["_supplyVehicle", [], [[]]],
             ["_objectTexture", [], [[]]],
             ["_EDENinventory", [], [[]]],
@@ -65,7 +66,7 @@ private _vehs = +(profileNamespace getVariable [format ["TET_%1_vehs", _name], [
             ["_tagTexture", "", [""]]
         ];
 
-        private _veh = [_veh_type, _veh_pos, _veh_dir, _customization, _isMedicalVehicle, _isRepairVehicle, _fuelSource, _pylons, _isContaminated, _supplyVehicle, _objectTexture, _EDENinventory, _veh_AllHitPointsDamage, _flagTexture, _tagTexture] call persist_veh_fnc_createVehicle;
+        private _veh = [_veh_type, _veh_pos, _veh_dir, _customization, _isMedicalVehicle, _isRepairVehicle, _fuelSource, _pylons, _supplyVehicle, _objectTexture, _EDENinventory, _veh_AllHitPointsDamage, _flagTexture, _tagTexture] call persist_veh_fnc_createVehicle;
         _veh setVectorDirAndUp _vectorPos;
         _veh setFuel _veh_fuel;
 
@@ -73,18 +74,18 @@ private _vehs = +(profileNamespace getVariable [format ["TET_%1_vehs", _name], [
 
         [_veh, _veh_cargo, _veh_inventory] call persist_db_fnc_LoadCargo;
 
-        //if (_ViV isNotEqualTo []) then {
-        //    {
-        //        private _vehToLoad = _x call _loadVehicle;
-        //        if !([_vehToLoad, _veh] call btc_tow_fnc_ViV) then {
-        //            _vehToLoad setVehiclePosition [_veh, [], 100, "NONE"];
-        //            private _marker = _vehToLoad getVariable ["marker", ""];
-        //            if (_marker isNotEqualTo "") then {
-        //                _marker setMarkerPos _vehToLoad;
-        //            };
-        //        };
-        //    } forEach _ViV;
-        //};
+        if (_ViV isNotEqualTo []) then {
+            //{
+                //private _vehToLoad = _x call _loadVehicle;
+                //if !([_vehToLoad, _veh] call btc_tow_fnc_ViV) then {
+                //    //_vehToLoad setVehiclePosition [_veh, [], 100, "NONE"];
+                //    private _marker = _vehToLoad getVariable ["marker", ""];
+                //    if (_marker isNotEqualTo "") then {
+                //        _marker setMarkerPos _vehToLoad;
+                //   };
+                //};
+            //} forEach _ViV;
+        };
 
         _veh
     };
