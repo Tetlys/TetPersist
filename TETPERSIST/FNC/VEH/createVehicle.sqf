@@ -32,15 +32,14 @@ params [
     ["_objectTexture", [], [[]]],
     ["_EDENinventory", [], [[]]],
     ["_allHitPointsDamage", [], [[]]],
-    ["_flagTexture", "", [""]],
-    ["_tagTexture", "", [""]]
+    ["_flagTexture", "", [""]]
 ];
 
 private _veh  = createVehicle [_type, ASLToATL _pos, [], 0, "CAN_COLLIDE"];
 _veh setDir _dir;
 _veh setPosASL _pos;
 
-[_veh, _customization, _isMedicalVehicle, _isRepairVehicle, _fuelSource, _pylons, _isContaminated, _supplyVehicle, _objectTexture] call persist_veh_fnc_propertiesSet;
+[_veh, _customization, _isMedicalVehicle, _isRepairVehicle, _fuelSource, _pylons, _supplyVehicle, _objectTexture] call persist_veh_fnc_propertiesSet;
 if (_EDENinventory isNotEqualTo []) then {
     _veh setVariable ["btc_EDENinventory", _EDENinventory];
     [_veh, _EDENinventory] call persist_obj_fnc_invSet;

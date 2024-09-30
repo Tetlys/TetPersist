@@ -1,6 +1,7 @@
 // INIT SERVER
 
 if (profileNamespace getVariable [format ["TET_%1_db", worldName], false]) then {
+//[] call compileScript ["TETPERSIST\FNC\CORE\delete.sqf"];
 [] call compileScript ["TETPERSIST\FNC\CORE\load.sqf"];
 } else {
     {

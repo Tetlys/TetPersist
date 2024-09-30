@@ -55,18 +55,16 @@ private _vehs = +(profileNamespace getVariable [format ["TET_%1_vehs", _name], [
             ["_isRepairVehicle", false, [false]],
             ["_fuelSource", [], [[]]],
             ["_pylons", [], [[]]],
-            ["_isContaminated", false, [false]],
             ["_supplyVehicle", [], [[]]],
             ["_objectTexture", [], [[]]],
             ["_EDENinventory", [], [[]]],
             ["_vectorPos", [], [[]]],
             ["_ViV", [], [[]]],
             ["_flagTexture", "", [""]],
-            ["_turretMagazines", [], [[]]],
-            ["_tagTexture", "", [""]]
+            ["_turretMagazines", [], [[]]]
         ];
 
-        private _veh = [_veh_type, _veh_pos, _veh_dir, _customization, _isMedicalVehicle, _isRepairVehicle, _fuelSource, _pylons, _supplyVehicle, _objectTexture, _EDENinventory, _veh_AllHitPointsDamage, _flagTexture, _tagTexture] call persist_veh_fnc_createVehicle;
+        private _veh = [_veh_type, _veh_pos, _veh_dir, _customization, _isMedicalVehicle, _isRepairVehicle, _fuelSource, _pylons, _supplyVehicle, _objectTexture, _EDENinventory, _veh_AllHitPointsDamage, _flagTexture] call persist_veh_fnc_createVehicle;
         _veh setVectorDirAndUp _vectorPos;
         _veh setFuel _veh_fuel;
 

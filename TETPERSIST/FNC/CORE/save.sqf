@@ -37,13 +37,11 @@ private _vehiclesNotInCargo = _vehicles select {
 private _vehiclesInCargo = _vehicles - _vehiclesNotInCargo;
 
 {
-    (_x call btc_db_fnc_saveObjectStatus) params [
+    (_x call persist_db_fnc_SaveObjStatus) params [
         "_type", "_pos", "_dir", "", "_cargo",
-        "_inventory", "_vectorPos", "_isContaminated", "",
+        "_inventory", "_vectorPos",
         ["_flagTexture", "", [""]],
         ["_turretMagazines", [], [[]]],
-        ["_notuse", "", [""]],
-        ["_tagTexture", "", [""]],
         ["_properties", [], [[]]]
     ];
 
@@ -56,7 +54,7 @@ private _vehiclesInCargo = _vehicles - _vehiclesNotInCargo;
     _data pushBack _cargo;
     _data pushBack _inventory;
     _data append ([_x] call persist_veh_fnc_propertiesGet);
-    _data pushBack (_x getVariable ["btc_EDENinventory", []]);
+    _data pushBack (_x getVariable ["tet_EDENinventory", []]);
     _data pushBack _vectorPos;
     _data pushBack []; // ViV
     _data pushBack _flagTexture;
