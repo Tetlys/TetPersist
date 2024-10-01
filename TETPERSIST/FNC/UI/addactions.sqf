@@ -19,46 +19,13 @@ Author:
 ---------------------------------------------------------------------------- */
 
 
-// TEMPORARY - Change to ace actions
+//Database
+private _action = ["Database", "Database", "\A3\ui_f\data\igui\cfg\simpleTasks\letters\D_ca.paa", {}, {(call BIS_fnc_admin) == 2 || !isMultiplayer}] call ace_interact_menu_fnc_createAction;
+[player, 1, ["ACE_SelfActions"], _action] call ace_interact_menu_fnc_addActionToObject;
 
-// Change to ace actions to make life ez
-
-_loadAction = player addAction [
-    "<t color='#00FF00'>Load Data</t>",          // Green text for the action
-    {
-        [] remoteExecCall ["persist_db_fnc_load", 2];  // Remote execute on the server (2 is for the server)
-    },
-    nil,  // No arguments passed
-    6,    // Priority (adjust as needed)
-    true, // Always available to admins
-    true, // Available when in range (change to false if proximity restrictions are desired)
-    "serverCommandAvailable '#kick'",  // Condition: Only visible to admins
-    ""    // Code when the action is removed
-];
-
-_saveAction = player addAction [
-    "<t color='#FFFF00'>Save Data</t>",          // Yellow text for the action
-    {
-        [] remoteExecCall ["persist_db_fnc_save", 2];  // Remote execute on the server
-    },
-    nil,
-    6,
-    true,
-    true,
-    "serverCommandAvailable '#kick'",  // Condition: Only visible to admins
-    ""
-];
-
-_deleteAction = player addAction [
-    "<t color='#FF0000'>Delete Data</t>",        // Red text for the action
-    {
-        [] remoteExecCall ["persist_db_fnc_delete", 2];  // Remote execute on the server
-    },
-    nil,
-    6,
-    true,
-    true,
-    "serverCommandAvailable '#kick'",  // Condition: Only visible to admins
-    ""
-];
-
+_action = ["request_save", "Save", "\A3\ui_f\data\igui\cfg\simpleTasks\types\download_ca.paa", {[] remoteExecCall ["persist_db_fnc_save", 2]}, {true}] call ace_interact_menu_fnc_createAction;
+[player, 1, ["ACE_SelfActions", "Database"], _action] call ace_interact_menu_fnc_addActionToObject;
+_action = ["request_delete", "Delete", "\A3\ui_f\data\igui\cfg\simpleTasks\types\exit_ca.paa", {[] remoteExecCall ["persist_db_fnc_delete", 2]}, {true}] call ace_interact_menu_fnc_createAction;
+[player, 1, ["ACE_SelfActions", "Database"], _action] call ace_interact_menu_fnc_addActionToObject;
+_action = ["request_load", "Load", "\A3\ui_f\data\igui\cfg\simpleTasks\types\upload_ca.paa", {[] remoteExecCall ["persist_db_fnc_load", 2]}, {true}] call ace_interact_menu_fnc_createAction;
+[player, 1, ["ACE_SelfActions", "Database"], _action] call ace_interact_menu_fnc_addActionToObject;
