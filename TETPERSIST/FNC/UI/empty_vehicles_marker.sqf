@@ -6,7 +6,7 @@ _markedveh1 = [];
 _cfg = configFile >> "cfgVehicles";
 _vehtomark = [];
 
-_vehtomark = persist_save_vehicles;
+_vehtomark = +persist_save_vehicles;
 
 // Misc variables
 markers_reset = [99999,99999,0];
