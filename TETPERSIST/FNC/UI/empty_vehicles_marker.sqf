@@ -4,21 +4,31 @@ _vehmarkers = [];
 _markedveh = []; 
 _markedveh1 = [];
 _cfg = configFile >> "cfgVehicles";
-_vehtomark = [];
-
-_vehtomark = +persist_save_vehicles;
 
 // Misc variables
 markers_reset = [99999,99999,0];
 
 while { true } do {
 
-    _markedveh = [];
-    {
-        if (alive _x && (typeof _x) in _vehtomark && (count (crew _x)) == 0) then {
-            _markedveh pushback _x;
+_markedveh = [];
+{
+    // Fetch vehicle's faction and type
+    _vehicleFaction = faction _x;
+    _vehicleType = typeOf _x;
+
+    // Get the side from the vehicle's configuration
+    _vehicleSide = getNumber(configFile >> "CfgVehicles" >> _vehicleType >> "side");
+
+    // Check if the vehicle belongs to Bluefor (side 1), is alive, and has no crew
+    if (_vehicleSide == 1) then { // 1 corresponds to WEST (Bluefor)
+        if (alive _x) then {
+            if (count (crew _x) == 0) then {
+                // Add vehicle to the marked array
+                _markedveh pushBack _x;
+            };
         };
-    } foreach vehicles;
+    };
+} foreach vehicles;
 
     if ( count _markedveh != count _vehmarkers ) then {
         { deleteMarkerLocal _x; } foreach _vehmarkers;
