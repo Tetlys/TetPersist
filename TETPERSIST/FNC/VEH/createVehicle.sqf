@@ -18,7 +18,6 @@ Author:
     Vdauphin
 
 ---------------------------------------------------------------------------- */
-
 params [
     ["_type", "", [""]],
     ["_pos", [0, 0, 0], [[]]],
@@ -34,6 +33,8 @@ params [
     ["_allHitPointsDamage", [], [[]]],
     ["_flagTexture", "", [""]]
 ];
+
+// add a wait and exscute around all of this
 
 private _veh  = createVehicle [_type, ASLToATL _pos, [], 0, "CAN_COLLIDE"];
 _veh setDir _dir;
@@ -73,4 +74,3 @@ if (_tagTexture isNotEqualTo "") then {
 
 _veh call persist_veh_fnc_add;
 _veh
- 

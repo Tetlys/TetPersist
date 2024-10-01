@@ -1,5 +1,5 @@
 /* ----------------------------------------------------------------------------
-Function: persist_mil_fnc_store
+Function: persist_mil_fnc_split
 
 Description:
     FILL ME
@@ -18,6 +18,11 @@ Author:
 
 ---------------------------------------------------------------------------- */
 
-// Persist_save_units -> remove any dead or null units
 
-// store [type, position, group, vehicle]
+
+// Used to split down each unit into its parts - vehicle, units 
+
+params [
+    ["_created", objNull, [objNull]]
+];
+

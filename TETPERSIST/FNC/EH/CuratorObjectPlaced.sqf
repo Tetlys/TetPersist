@@ -30,7 +30,3 @@ if !((_object_placed isKindOf "allVehicles") || (_object_placed isKindOf "Module
 if (!(_object_placed isKindOf "Module_F") && (_object_placed isKindOf "allVehicles")) then { // Needs a filter for crew count.
     [_object_placed] remoteExecCall ["persist_veh_fnc_add", 2];
 };
-
-
-// Add a section ai 
-

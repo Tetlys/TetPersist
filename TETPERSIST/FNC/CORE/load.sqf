@@ -28,11 +28,14 @@ if !(profileNamespace getVariable [format ["TET_%1_db", worldName], false]) exit
 };
 
 // CLEAR LAYERS
-{deleteVehicle _x} forEach (getMissionLayerEntities "persist_save_vehicles" select 0);
-if !(isNil "persist_save_vehicles") then {
-    {deleteVehicle _x} forEach persist_save_vehicles;
+{deleteVehicle _x;} forEach (getMissionLayerEntities "persist_save_vehicles" select 0); 
+if !(isNil "persist_save_vehicles") then {{
+    if (count crew _x > 0) then {deletevehiclecrew _x};
+    deleteVehicle _x;
+    } forEach persist_save_vehicles;
     persist_save_vehicles = [];
-};
+    true 
+}; 
 publicVariable "persist_save_vehicles";
 
 {deleteVehicle _x} forEach (getMissionLayerEntities "persist_save_objects" select 0);
@@ -41,6 +44,8 @@ if !(isNil "persist_save_objects") then {
     persist_save_objects = [];
 };
 publicVariable "persist_save_objects";
+
+sleep 2;
 
 // OBJECTS
 private _objs = +(profileNamespace getVariable [format ["TET_%1_objs", _name], []]);
@@ -96,7 +101,6 @@ private _vehs = +(profileNamespace getVariable [format ["TET_%1_vehs", _name], [
                 //};
             //} forEach _ViV;
         };
-
         _veh
     };
     {
