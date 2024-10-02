@@ -20,6 +20,8 @@
 
 This module tracks and saves the positions, inventories, and states of various game elements at the beginning and end of gameplay, ensuring they persist when a session ends and are reloaded when it resumes without ever effecting server or player performance.
 
+- Credit to vdauphin for a number of functions, and the initial inspiration for many of the modules.
+
 ## Usage 🚀
 
 1. Install the PBO module in your mission.
