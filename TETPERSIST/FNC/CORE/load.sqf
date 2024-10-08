@@ -45,6 +45,14 @@ if !(isNil "persist_save_objects") then {
 };
 publicVariable "persist_save_objects";
 
+
+{deleteVehicle _x} forEach (getMissionLayerEntities "Persist_save_units" select 0);
+if !(isNil "Persist_save_units") then {
+    {deleteVehicle _x} forEach Persist_save_units;
+    Persist_save_units = [];
+};
+publicVariable "Persist_save_units";
+
 sleep 2;
 
 // OBJECTS
@@ -107,6 +115,15 @@ private _vehs = +(profileNamespace getVariable [format ["TET_%1_vehs", _name], [
         _x call _loadVehicle;
     } forEach _this;
 }, _vehs] call CBA_fnc_execNextFrame;
+
+// MIL
+// OBJECTS
+private _units = +(profileNamespace getVariable [format ["TET_%1_units", _name], []]);
+[{
+    {
+        [_x] call persist_mil_fnc_loadunit;
+    } forEach _this;
+}, _units] call CBA_fnc_execNextFrame;
 
 // SLOTS
 private _slots_serialized = +(profileNamespace getVariable [format ["TET_%1_slots", _name], createHashMap]);

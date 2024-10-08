@@ -27,6 +27,8 @@ params [
 
 [false] call persist_db_fnc_delete;
 
+{{moveout _x} foreach crew _x} foreach persist_save_vehicles;
+
 // VEHICLES 
 private _array_veh = [];
 private _vehicles = persist_save_vehicles - [objNull];
@@ -112,6 +114,19 @@ private _slots_serialized = +persist_slots_serialized;
     _y set [5, typeOf _vehicle];
 } forEach _slots_serialized;
 profileNamespace setVariable [format ["TET_%1_slots", _name], +_slots_serialized];
+
+// MIL
+private _array_units = [];
+{
+    if !(!alive _x || isNull _x) then {
+        private _data = [_x] call persist_mil_fnc_storeunit;
+        _array_units pushBack _data;
+    };
+} forEach (Persist_save_units select {
+    !(isObjectHidden _x) &&
+    isNull objectParent _x
+});
+profileNamespace setVariable [format ["TET_%1_units", _name], +_array_units];
 
 
 // MARKERS 

@@ -4,26 +4,18 @@ _vehmarkers = [];
 _markedveh = []; 
 _markedveh1 = [];
 _cfg = configFile >> "cfgVehicles";
-
-// Misc variables
 markers_reset = [99999,99999,0];
 
 while { true } do {
 
 _markedveh = [];
 {
-    // Fetch vehicle's faction and type
     _vehicleFaction = faction _x;
     _vehicleType = typeOf _x;
-
-    // Get the side from the vehicle's configuration
     _vehicleSide = getNumber(configFile >> "CfgVehicles" >> _vehicleType >> "side");
-
-    // Check if the vehicle belongs to Bluefor (side 1), is alive, and has no crew
-    if (_vehicleSide == 1) then { // 1 corresponds to WEST (Bluefor)
+    if (_vehicleSide == 1) then {
         if (alive _x) then {
             if (count (crew _x) == 0) then {
-                // Add vehicle to the marked array
                 _markedveh pushBack _x;
             };
         };
