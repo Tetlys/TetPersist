@@ -18,6 +18,14 @@ Author:
 
 ---------------------------------------------------------------------------- */
 
-// Persist_save_units -> remove any dead or null units
+params [
+    ["_unit", objNull, [objNull]]
+];
 
-// store [type, position, group, vehicle]
+private _data = [];
+_data pushBack (typeOf _unit);
+_data pushBack (getPosASL _unit);
+_data pushBack (getDir _unit);
+_data pushback (group _unit);
+
+_data

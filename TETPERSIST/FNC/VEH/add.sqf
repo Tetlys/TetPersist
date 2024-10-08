@@ -29,6 +29,12 @@ if (isNil {_veh getVariable "tet_EDENinventory"}) then {
     _veh setVariable ["tet_EDENinventory", _veh call persist_obj_fnc_invGet];
 };
 
+if (count crew _veh > 0) then {
+    {
+        _x call persist_mil_fnc_addunit;
+    } foreach crew _veh
+};
+
 [{ace_common_settingsInitFinished}, {
     if (isNull _this) exitwith {};
     if (isNil {_this getVariable "tet_EDEN_defaultFuelCargo"}) then {

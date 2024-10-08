@@ -28,6 +28,11 @@ persist_veh_fnc_propertiesSet = compileScript ["TETPERSIST\FNC\VEH\propertiesset
 persist_veh_fnc_add = compileScript ["TETPERSIST\FNC\VEH\add.sqf"];
 persist_veh_fnc_createVehicle = compileScript ["TETPERSIST\FNC\VEH\createVehicle.sqf"];
 
+// MIL 
+persist_mil_fnc_addunit = compileScript ["TETPERSIST\FNC\MIL\addunit.sqf"];
+persist_mil_fnc_loadunit = compileScript ["TETPERSIST\FNC\MIL\loadunit.sqf"];
+persist_mil_fnc_storeunit = compileScript ["TETPERSIST\FNC\MIL\storeunit.sqf"];
+
 /////////////////////CLIENT\\\\\\\\\\\\\\\\\\\\\
 
 // 		EH 

@@ -18,6 +18,19 @@ Author:
 
 ---------------------------------------------------------------------------- */
 
-// and group createUnit [type, position]
+params [
+    ["_unit_data", [], [[]]]
+];
+_unit_data params [
+    "_type",
+    "_pos",
+    "_dir",
+	"_group"
+];
 
-// unit moveInAny vehicle
+private _unit = _group createunit [_type, ASLToATL _pos, [], 0, "NONE"];
+
+_unit setDir _dir;
+_unit setPosASL _pos;
+
+[_unit] call persist_mil_fnc_addunit;
