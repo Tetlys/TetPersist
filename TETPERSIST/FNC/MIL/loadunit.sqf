@@ -30,7 +30,7 @@ _unit_data params [
 
 private _unit = _group createunit [_type, ASLToATL _pos, [], 0, "NONE"];
 
-_unit setDir _dir;
-_unit setPosASL _pos;
+//_unit setDir _dir;
+//_unit setPosASL _pos;
 
 [_unit] call persist_mil_fnc_addunit;

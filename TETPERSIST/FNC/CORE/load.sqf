@@ -53,7 +53,6 @@ if !(isNil "Persist_save_units") then {
 };
 publicVariable "Persist_save_units";
 
-sleep 2;
 
 // OBJECTS
 private _objs = +(profileNamespace getVariable [format ["TET_%1_objs", _name], []]);
